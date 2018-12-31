@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECom.Categlog", "ECom.Categ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECom.Catelog.Model", "ECom.Catelog.Model\ECom.Catelog.Model.csproj", "{B40F5C2B-AE77-4BEF-8914-1CC99E867B49}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECom.API", "ECom.API\ECom.API.csproj", "{127507DE-6A96-42F4-9A20-52EFF8BC8343}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,14 @@ Global
 		{B40F5C2B-AE77-4BEF-8914-1CC99E867B49}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B40F5C2B-AE77-4BEF-8914-1CC99E867B49}.Release|x64.ActiveCfg = Release|Any CPU
 		{B40F5C2B-AE77-4BEF-8914-1CC99E867B49}.Release|x64.Build.0 = Release|Any CPU
+		{127507DE-6A96-42F4-9A20-52EFF8BC8343}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{127507DE-6A96-42F4-9A20-52EFF8BC8343}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{127507DE-6A96-42F4-9A20-52EFF8BC8343}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{127507DE-6A96-42F4-9A20-52EFF8BC8343}.Debug|x64.Build.0 = Debug|Any CPU
+		{127507DE-6A96-42F4-9A20-52EFF8BC8343}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{127507DE-6A96-42F4-9A20-52EFF8BC8343}.Release|Any CPU.Build.0 = Release|Any CPU
+		{127507DE-6A96-42F4-9A20-52EFF8BC8343}.Release|x64.ActiveCfg = Release|Any CPU
+		{127507DE-6A96-42F4-9A20-52EFF8BC8343}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

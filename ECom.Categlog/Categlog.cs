@@ -4,6 +4,7 @@ using System.Fabric;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using ECom.Catelog.Model;
 using Microsoft.ServiceFabric.Data.Collections;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
@@ -15,6 +16,7 @@ namespace ECom.Categlog
     /// </summary>
     internal sealed class Categlog : StatefulService
     {
+        private ICatelogRepository _repo;
         public Categlog(StatefulServiceContext context)
             : base(context)
         { }
@@ -38,31 +40,28 @@ namespace ECom.Categlog
         /// <param name="cancellationToken">Canceled when Service Fabric needs to shut down this service replica.</param>
         protected override async Task RunAsync(CancellationToken cancellationToken)
         {
-            // TODO: Replace the following sample code with your own logic 
-            //       or remove this RunAsync override if it's not needed in your service.
+            this._repo = new ServiceFabricCatelogRepository(this.StateManager);
 
-            var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
+            var p1 = new Product {
+                Id = Guid.NewGuid(),
+                Name = "Surface Book",
+                Description = "Microsoft Latest Laptop, i7 CPU, 1Tb SSD",
+                Availability = 10
 
-            while (true)
+            };
+            var p2 = new Product
             {
-                cancellationToken.ThrowIfCancellationRequested();
+                Id = Guid.NewGuid(),
+                Name = "Arc Touch Mouse",
+                Description = "Computer Mouse, bluetooth, requires 2 AAA batteries",
+                Availability = 13
 
-                using (var tx = this.StateManager.CreateTransaction())
-                {
-                    var result = await myDictionary.TryGetValueAsync(tx, "Counter");
+            };
 
-                    ServiceEventSource.Current.ServiceMessage(this.Context, "Current Counter Value: {0}",
-                        result.HasValue ? result.Value.ToString() : "Value does not exist.");
+            // await this._repo.AddProduct(p1);
+            // await this._repo.AddProduct(p2);
 
-                    await myDictionary.AddOrUpdateAsync(tx, "Counter", 0, (key, value) => ++value);
-
-                    // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are 
-                    // discarded, and nothing is saved to the secondary replicas.
-                    await tx.CommitAsync();
-                }
-
-                await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
-            }
+            var ps = await this._repo.GetAllProducts();
         }
     }
 }
