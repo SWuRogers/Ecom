@@ -32,7 +32,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ECom.API\ECom.API.csproj" />
     <ProjectReference Include="..\ECom.Categlog\ECom.Categlog.csproj" />
+    <ProjectReference Include="..\UserActor\UserActor.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
   <PropertyGroup>

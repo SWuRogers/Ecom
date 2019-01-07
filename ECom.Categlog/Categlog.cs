@@ -58,8 +58,8 @@ namespace ECom.Categlog
 
             };
 
-            // await this._repo.AddProduct(p1);
-            // await this._repo.AddProduct(p2);
+             // await this._repo.AddProduct(p1);
+             // await this._repo.AddProduct(p2);
 
             var ps = await this._repo.GetAllProducts();
         }
